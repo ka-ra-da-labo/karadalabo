@@ -1,0 +1,3222 @@
+<html lang="ja"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>統合ページ</title><link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script><style>/*! tailwindcss v4.1.8 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+    --color-green-500: oklch(72.3% 0.219 149.579);
+    --color-gray-500: oklch(55.1% 0.027 264.364);
+    --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-gray-800: oklch(27.8% 0.033 256.848);
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --container-3xl: 48rem;
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --leading-relaxed: 1.625;
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+  }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b, strong {
+    font-weight: bolder;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol, ul, menu {
+    list-style: none;
+  }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  button, input, select, optgroup, textarea, ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button, input:where([type='button'], [type='reset'], [type='submit']), ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden='until-found'])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
+  .mt-8 {
+    margin-top: calc(var(--spacing) * 8);
+  }
+  .mt-12 {
+    margin-top: calc(var(--spacing) * 12);
+  }
+  .mt-16 {
+    margin-top: calc(var(--spacing) * 16);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+  .flex {
+    display: flex;
+  }
+  .w-40 {
+    width: calc(var(--spacing) * 40);
+  }
+  .w-full {
+    width: 100%;
+  }
+  .max-w-3xl {
+    max-width: var(--container-3xl);
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .space-x-12 {
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 12) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 12) * calc(1 - var(--tw-space-x-reverse)));
+    }
+  }
+  .bg-green-500 {
+    background-color: var(--color-green-500);
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .p-12 {
+    padding: calc(var(--spacing) * 12);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-3xl {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-5xl {
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .leading-relaxed {
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-medium {
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+  }
+  .text-gray-500 {
+    color: var(--color-gray-500);
+  }
+  .text-gray-700 {
+    color: var(--color-gray-700);
+  }
+  .text-gray-800 {
+    color: var(--color-gray-800);
+  }
+  .text-green-500 {
+    color: var(--color-green-500);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+}
+@property --tw-space-x-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-space-x-reverse: 0;
+      --tw-leading: initial;
+      --tw-font-weight: initial;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mission-icons-flex {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0 1rem;
+  }
+
+  .mission-icon-container {
+    width: 120px;
+    flex-shrink: 0;
+    margin-right: 1rem;
+  }
+
+  .mission-content {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .cover-description {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .staff-mission-title {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+}
+</style><style>
+        body {width: 1280px; height: 726px; font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;}
+        .slide {
+            width: 1280px;
+            height: 720px;
+        }
+        .mission-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+    </style><style data-sk-tag-style-id="htmlToPageStyle">
+
+.sk-source-tag {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  text-align: center;
+  line-height: 10px;
+  color: var(--text-icon-text-3, #485568);
+  text-align: center;
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 170%;
+  /* 22.95px */
+  background: var(--fill-fill-2, #edeff1);
+  /* border-radius: 50%; */
+  cursor: pointer;
+  background: url(https://static.skywork.ai/fe/skywork-site-assets/svg/ic_sources.svg) no-repeat;
+  background-size: 100% 100%;
+  vertical-align: middle;
+}
+
+.sk-source-tag:hover {
+  background: url(https://static.skywork.ai/fe/skywork-site-assets/svg/ic_sources_hover.svg) no-repeat;
+  background-size: 100% 100%;
+}
+
+.sk-source-tag.active {
+  background: url(https://static.tiangong.cn/fe/skywork-site-assets/svg/ic_sources_hover.svg) no-repeat;
+  background-size: 100% 100%;
+}
+
+.sk-source-text-check {
+  background: var(--other-doc-check, rgba(77, 94, 255, 0.20));
+}
+
+.sk-hide-tag .sk-source-tag {
+  display: none
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+
+</style><style>/*! tailwindcss v4.1.8 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+    --color-gray-100: oklch(96.7% 0.003 264.542);
+    --color-gray-200: oklch(92.8% 0.006 264.531);
+    --color-gray-500: oklch(55.1% 0.027 264.364);
+    --color-gray-600: oklch(44.6% 0.03 256.802);
+    --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-gray-800: oklch(27.8% 0.033 256.848);
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --font-weight-bold: 700;
+    --radius-lg: 0.5rem;
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+  }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b, strong {
+    font-weight: bolder;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol, ul, menu {
+    list-style: none;
+  }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  button, input, select, optgroup, textarea, ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button, input:where([type='button'], [type='reset'], [type='submit']), ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden='until-found'])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
+  .mt-8 {
+    margin-top: calc(var(--spacing) * 8);
+  }
+  .mr-4 {
+    margin-right: calc(var(--spacing) * 4);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+  .ml-4 {
+    margin-left: calc(var(--spacing) * 4);
+  }
+  .flex {
+    display: flex;
+  }
+  .w-1\/2 {
+    width: calc(1/2 * 100%);
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .border-l {
+    border-left-style: var(--tw-border-style);
+    border-left-width: 1px;
+  }
+  .border-gray-200 {
+    border-color: var(--color-gray-200);
+  }
+  .bg-gray-100 {
+    background-color: var(--color-gray-100);
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
+  .p-12 {
+    padding: calc(var(--spacing) * 12);
+  }
+  .pr-8 {
+    padding-right: calc(var(--spacing) * 8);
+  }
+  .pl-8 {
+    padding-left: calc(var(--spacing) * 8);
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-lg {
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .text-gray-500 {
+    color: var(--color-gray-500);
+  }
+  .text-gray-600 {
+    color: var(--color-gray-600);
+  }
+  .text-gray-700 {
+    color: var(--color-gray-700);
+  }
+  .text-gray-800 {
+    color: var(--color-gray-800);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-border-style: solid;
+      --tw-font-weight: initial;
+    }
+  }
+}
+</style><style>
+        body {width: 1280px; height: 720px; font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;}
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+        }
+        .accent-color {
+            color: #8BC34A;
+        }
+        .accent-bg {
+            background-color: #8BC34A;
+        }
+        .section-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .bullet-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        .bullet-icon {
+            min-width: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+            margin-top: 0.25rem;
+        }
+    </style><style data-sk-tag-style-id="htmlToPageStyle">
+
+.sk-source-tag {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  text-align: center;
+  line-height: 10px;
+  color: var(--text-icon-text-3, #485568);
+  text-align: center;
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 170%;
+  /* 22.95px */
+  background: var(--fill-fill-2, #edeff1);
+  /* border-radius: 50%; */
+  cursor: pointer;
+  background: url(https://static.skywork.ai/fe/skywork-site-assets/svg/ic_sources.svg) no-repeat;
+  background-size: 100% 100%;
+  vertical-align: middle;
+}
+
+.sk-source-tag:hover {
+  background: url(https://static.skywork.ai/fe/skywork-site-assets/svg/ic_sources_hover.svg) no-repeat;
+  background-size: 100% 100%;
+}
+
+.sk-source-tag.active {
+  background: url(https://static.tiangong.cn/fe/skywork-site-assets/svg/ic_sources_hover.svg) no-repeat;
+  background-size: 100% 100%;
+}
+
+.sk-source-text-check {
+  background: var(--other-doc-check, rgba(77, 94, 255, 0.20));
+}
+
+.sk-hide-tag .sk-source-tag {
+  display: none
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+
+</style><style>/*! tailwindcss v4.1.8 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+    --color-gray-100: oklch(96.7% 0.003 264.542);
+    --color-gray-200: oklch(92.8% 0.006 264.531);
+    --color-gray-500: oklch(55.1% 0.027 264.364);
+    --color-gray-600: oklch(44.6% 0.03 256.802);
+    --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-gray-800: oklch(27.8% 0.033 256.848);
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --font-weight-bold: 700;
+    --radius-lg: 0.5rem;
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+  }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b, strong {
+    font-weight: bolder;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol, ul, menu {
+    list-style: none;
+  }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  button, input, select, optgroup, textarea, ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button, input:where([type='button'], [type='reset'], [type='submit']), ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden='until-found'])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .mt-6 {
+    margin-top: calc(var(--spacing) * 6);
+  }
+  .mt-8 {
+    margin-top: calc(var(--spacing) * 8);
+  }
+  .mr-3 {
+    margin-right: calc(var(--spacing) * 3);
+  }
+  .mb-2 {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+  .ml-8 {
+    margin-left: calc(var(--spacing) * 8);
+  }
+  .flex {
+    display: flex;
+  }
+  .w-1\/2 {
+    width: calc(1/2 * 100%);
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .list-disc {
+    list-style-type: disc;
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .space-y-6 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .space-x-8 {
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 8) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-x-reverse)));
+    }
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-gray-200 {
+    border-color: var(--color-gray-200);
+  }
+  .bg-gray-100 {
+    background-color: var(--color-gray-100);
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+  .p-12 {
+    padding: calc(var(--spacing) * 12);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-3xl {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-lg {
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .text-gray-500 {
+    color: var(--color-gray-500);
+  }
+  .text-gray-600 {
+    color: var(--color-gray-600);
+  }
+  .text-gray-700 {
+    color: var(--color-gray-700);
+  }
+  .text-gray-800 {
+    color: var(--color-gray-800);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .shadow-md {
+    --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-space-x-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-space-y-reverse: 0;
+      --tw-space-x-reverse: 0;
+      --tw-border-style: solid;
+      --tw-font-weight: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+    }
+  }
+}
+</style><style>
+        body {width: 1280px; height: 762px; font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;}
+        .slide {
+            width: 1280px;
+            min-height: 762px;
+        }
+        .accent-color {
+            color: #8BC34A;
+        }
+        .accent-bg {
+            background-color: #8BC34A;
+        }
+        .feature-box {
+            border-left: 4px solid #8BC34A;
+            padding-left: 1rem;
+        }
+        .circle-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+        }
+    </style><style data-sk-tag-style-id="htmlToPageStyle">
+
+.sk-source-tag {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  text-align: center;
+  line-height: 10px;
+  color: var(--text-icon-text-3, #485568);
+  text-align: center;
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 170%;
+  /* 22.95px */
+  background: var(--fill-fill-2, #edeff1);
+  /* border-radius: 50%; */
+  cursor: pointer;
+  background: url(https://static.skywork.ai/fe/skywork-site-assets/svg/ic_sources.svg) no-repeat;
+  background-size: 100% 100%;
+  vertical-align: middle;
+}
+
+.sk-source-tag:hover {
+  background: url(https://static.skywork.ai/fe/skywork-site-assets/svg/ic_sources_hover.svg) no-repeat;
+  background-size: 100% 100%;
+}
+
+.sk-source-tag.active {
+  background: url(https://static.tiangong.cn/fe/skywork-site-assets/svg/ic_sources_hover.svg) no-repeat;
+  background-size: 100% 100%;
+}
+
+.sk-source-text-check {
+  background: var(--other-doc-check, rgba(77, 94, 255, 0.20));
+}
+
+.sk-hide-tag .sk-source-tag {
+  display: none
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+
+</style><style>/*! tailwindcss v4.1.8 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+    --color-gray-100: oklch(96.7% 0.003 264.542);
+    --color-gray-500: oklch(55.1% 0.027 264.364);
+    --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-gray-800: oklch(27.8% 0.033 256.848);
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --font-weight-bold: 700;
+    --radius-lg: 0.5rem;
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+  }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b, strong {
+    font-weight: bolder;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol, ul, menu {
+    list-style: none;
+  }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  button, input, select, optgroup, textarea, ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button, input:where([type='button'], [type='reset'], [type='submit']), ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden='until-found'])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .mt-1 {
+    margin-top: calc(var(--spacing) * 1);
+  }
+  .mt-6 {
+    margin-top: calc(var(--spacing) * 6);
+  }
+  .mt-8 {
+    margin-top: calc(var(--spacing) * 8);
+  }
+  .mr-2 {
+    margin-right: calc(var(--spacing) * 2);
+  }
+  .mr-4 {
+    margin-right: calc(var(--spacing) * 4);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+  .ml-4 {
+    margin-left: calc(var(--spacing) * 4);
+  }
+  .flex {
+    display: flex;
+  }
+  .grid {
+    display: grid;
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .items-start {
+    align-items: flex-start;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .gap-8 {
+    gap: calc(var(--spacing) * 8);
+  }
+  .space-y-2 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .bg-gray-100 {
+    background-color: var(--color-gray-100);
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+  .p-12 {
+    padding: calc(var(--spacing) * 12);
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .text-gray-500 {
+    color: var(--color-gray-500);
+  }
+  .text-gray-700 {
+    color: var(--color-gray-700);
+  }
+  .text-gray-800 {
+    color: var(--color-gray-800);
+  }
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-space-y-reverse: 0;
+      --tw-font-weight: initial;
+    }
+  }
+}
+</style><style>
+        body {width: 1280px; height: 748px; font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;}
+        .slide {
+            width: 1280px;
+            min-height: 748px;
+        }
+        .accent-color {
+            color: #8BC34A;
+        }
+        .accent-bg {
+            background-color: #8BC34A;
+        }
+        .topic-card {
+            border-left: 4px solid #8BC34A;
+            background-color: rgba(139, 195, 74, 0.1);
+            transition: all 0.3s ease;
+        }
+        .topic-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .icon-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #8BC34A;
+            color: white;
+        }
+    </style><style data-sk-tag-style-id="htmlToPageStyle">
+
+.sk-source-tag {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  text-align: center;
+  line-height: 10px;
+  color: var(--text-icon-text-3, #485568);
+  text-align: center;
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 170%;
+  /* 22.95px */
+  background: var(--fill-fill-2, #edeff1);
+  /* border-radius: 50%; */
+  cursor: pointer;
+  background: url(https://static.skywork.ai/fe/skywork-site-assets/svg/ic_sources.svg) no-repeat;
+  background-size: 100% 100%;
+  vertical-align: middle;
+}
+
+.sk-source-tag:hover {
+  background: url(https://static.skywork.ai/fe/skywork-site-assets/svg/ic_sources_hover.svg) no-repeat;
+  background-size: 100% 100%;
+}
+
+.sk-source-tag.active {
+  background: url(https://static.tiangong.cn/fe/skywork-site-assets/svg/ic_sources_hover.svg) no-repeat;
+  background-size: 100% 100%;
+}
+
+.sk-source-text-check {
+  background: var(--other-doc-check, rgba(77, 94, 255, 0.20));
+}
+
+.sk-hide-tag .sk-source-tag {
+  display: none
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+
+</style><style>/*! tailwindcss v4.1.8 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+    --color-gray-50: oklch(98.5% 0.002 247.839);
+    --color-gray-100: oklch(96.7% 0.003 264.542);
+    --color-gray-200: oklch(92.8% 0.006 264.531);
+    --color-gray-500: oklch(55.1% 0.027 264.364);
+    --color-gray-600: oklch(44.6% 0.03 256.802);
+    --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-gray-800: oklch(27.8% 0.033 256.848);
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --radius-lg: 0.5rem;
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+  }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b, strong {
+    font-weight: bolder;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol, ul, menu {
+    list-style: none;
+  }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  button, input, select, optgroup, textarea, ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button, input:where([type='button'], [type='reset'], [type='submit']), ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden='until-found'])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .my-6 {
+    margin-block: calc(var(--spacing) * 6);
+  }
+  .mt-1 {
+    margin-top: calc(var(--spacing) * 1);
+  }
+  .mt-2 {
+    margin-top: calc(var(--spacing) * 2);
+  }
+  .mt-6 {
+    margin-top: calc(var(--spacing) * 6);
+  }
+  .mr-3 {
+    margin-right: calc(var(--spacing) * 3);
+  }
+  .mr-4 {
+    margin-right: calc(var(--spacing) * 4);
+  }
+  .mb-2 {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+  .ml-4 {
+    margin-left: calc(var(--spacing) * 4);
+  }
+  .flex {
+    display: flex;
+  }
+  .h-12 {
+    height: calc(var(--spacing) * 12);
+  }
+  .w-1\/2 {
+    width: calc(1/2 * 100%);
+  }
+  .w-12 {
+    width: calc(var(--spacing) * 12);
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .items-start {
+    align-items: flex-start;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .space-y-5 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 5) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 5) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-gray-200 {
+    border-color: var(--color-gray-200);
+  }
+  .bg-gray-50 {
+    background-color: var(--color-gray-50);
+  }
+  .bg-gray-100 {
+    background-color: var(--color-gray-100);
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
+  .p-12 {
+    padding: calc(var(--spacing) * 12);
+  }
+  .pr-8 {
+    padding-right: calc(var(--spacing) * 8);
+  }
+  .pl-4 {
+    padding-left: calc(var(--spacing) * 4);
+  }
+  .pl-8 {
+    padding-left: calc(var(--spacing) * 8);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-3xl {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-lg {
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-medium {
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+  }
+  .text-gray-500 {
+    color: var(--color-gray-500);
+  }
+  .text-gray-600 {
+    color: var(--color-gray-600);
+  }
+  .text-gray-700 {
+    color: var(--color-gray-700);
+  }
+  .text-gray-800 {
+    color: var(--color-gray-800);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-space-y-reverse: 0;
+      --tw-border-style: solid;
+      --tw-font-weight: initial;
+    }
+  }
+}
+</style><style>
+        body {width: 1280px; height: 748px; font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;}
+        .slide {
+            width: 1280px;
+            min-height: 748px;
+        }
+        .accent-color {
+            color: #8BC34A;
+        }
+        .accent-bg {
+            background-color: #8BC34A;
+        }
+        .info-box {
+            border-left: 4px solid #8BC34A;
+        }
+        .flow-arrow {
+            position: relative;
+            padding: 0 30px;
+        }
+        .flow-arrow:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 15px solid #8BC34A;
+            transform: translateY(-50%);
+        }
+    </style><style data-sk-tag-style-id="htmlToPageStyle">
+
+.sk-source-tag {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  text-align: center;
+  line-height: 10px;
+  color: var(--text-icon-text-3, #485568);
+  text-align: center;
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 170%;
+  /* 22.95px */
+  background: var(--fill-fill-2, #edeff1);
+  /* border-radius: 50%; */
+  cursor: pointer;
+  background: url(https://static.skywork.ai/fe/skywork-site-assets/svg/ic_sources.svg) no-repeat;
+  background-size: 100% 100%;
+  vertical-align: middle;
+}
+
+.sk-source-tag:hover {
+  background: url(https://static.skywork.ai/fe/skywork-site-assets/svg/ic_sources_hover.svg) no-repeat;
+  background-size: 100% 100%;
+}
+
+.sk-source-tag.active {
+  background: url(https://static.tiangong.cn/fe/skywork-site-assets/svg/ic_sources_hover.svg) no-repeat;
+  background-size: 100% 100%;
+}
+
+.sk-source-text-check {
+  background: var(--other-doc-check, rgba(77, 94, 255, 0.20));
+}
+
+.sk-hide-tag .sk-source-tag {
+  display: none
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+
+</style><style>/*! tailwindcss v4.1.8 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+    --color-gray-50: oklch(98.5% 0.002 247.839);
+    --color-gray-100: oklch(96.7% 0.003 264.542);
+    --color-gray-200: oklch(92.8% 0.006 264.531);
+    --color-gray-500: oklch(55.1% 0.027 264.364);
+    --color-gray-600: oklch(44.6% 0.03 256.802);
+    --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-gray-800: oklch(27.8% 0.033 256.848);
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --font-weight-bold: 700;
+    --radius-lg: 0.5rem;
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+  }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b, strong {
+    font-weight: bolder;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol, ul, menu {
+    list-style: none;
+  }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  button, input, select, optgroup, textarea, ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button, input:where([type='button'], [type='reset'], [type='submit']), ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden='until-found'])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .mt-1 {
+    margin-top: calc(var(--spacing) * 1);
+  }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
+  .mt-6 {
+    margin-top: calc(var(--spacing) * 6);
+  }
+  .mt-8 {
+    margin-top: calc(var(--spacing) * 8);
+  }
+  .mr-3 {
+    margin-right: calc(var(--spacing) * 3);
+  }
+  .mr-4 {
+    margin-right: calc(var(--spacing) * 4);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+  .flex {
+    display: flex;
+  }
+  .w-1\/2 {
+    width: calc(1/2 * 100%);
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .items-start {
+    align-items: flex-start;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .space-y-6 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .space-x-8 {
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 8) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-x-reverse)));
+    }
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-gray-100 {
+    border-color: var(--color-gray-100);
+  }
+  .border-gray-200 {
+    border-color: var(--color-gray-200);
+  }
+  .bg-gray-50 {
+    background-color: var(--color-gray-50);
+  }
+  .bg-gray-100 {
+    background-color: var(--color-gray-100);
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+  .p-12 {
+    padding: calc(var(--spacing) * 12);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-lg {
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .text-gray-500 {
+    color: var(--color-gray-500);
+  }
+  .text-gray-600 {
+    color: var(--color-gray-600);
+  }
+  .text-gray-700 {
+    color: var(--color-gray-700);
+  }
+  .text-gray-800 {
+    color: var(--color-gray-800);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .shadow-sm {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-space-x-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-space-y-reverse: 0;
+      --tw-space-x-reverse: 0;
+      --tw-border-style: solid;
+      --tw-font-weight: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+    }
+  }
+}
+</style><style>
+        body {width: 1280px; height: 720px; font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;}
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+        }
+        .accent-color {
+            color: #8BC34A;
+        }
+        .accent-bg {
+            background-color: #8BC34A;
+        }
+        .icon-container {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .content-box {
+            border-left: 4px solid #8BC34A;
+            padding-left: 1rem;
+        }
+    </style><style data-sk-tag-style-id="htmlToPageStyle">
+
+.sk-source-tag {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  text-align: center;
+  line-height: 10px;
+  color: var(--text-icon-text-3, #485568);
+  text-align: center;
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 170%;
+  /* 22.95px */
+  background: var(--fill-fill-2, #edeff1);
+  /* border-radius: 50%; */
+  cursor: pointer;
+  background: url(https://static.skywork.ai/fe/skywork-site-assets/svg/ic_sources.svg) no-repeat;
+  background-size: 100% 100%;
+  vertical-align: middle;
+}
+
+.sk-source-tag:hover {
+  background: url(https://static.skywork.ai/fe/skywork-site-assets/svg/ic_sources_hover.svg) no-repeat;
+  background-size: 100% 100%;
+}
+
+.sk-source-tag.active {
+  background: url(https://static.tiangong.cn/fe/skywork-site-assets/svg/ic_sources_hover.svg) no-repeat;
+  background-size: 100% 100%;
+}
+
+.sk-source-text-check {
+  background: var(--other-doc-check, rgba(77, 94, 255, 0.20));
+}
+
+.sk-hide-tag .sk-source-tag {
+  display: none
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+
+</style></head>
+<body class="bg-white"><div class="slide bg-white flex flex-col items-center justify-between p-12">
+<!-- Logo Section -->
+<div class="w-full flex justify-center mt-8">
+<div class="text-center">
+<h1 class="text-4xl font-bold text-gray-800 mb-4">カラダラボ</h1>
+</div>
+</div>
+<!-- Title Section -->
+<div class="w-full text-center">
+<h1 class="text-5xl font-bold text-green-500" style="color: #8BC34A;">店長ミッション <span class="text-3xl" style="">-役割期待-</span></h1>
+<div class="mt-12 max-w-3xl mx-auto">
+<p class="text-xl text-gray-700 leading-relaxed"><span class="sk-text-wrapper-tag" data-sk-edited="" style=""><span class="sk-text-wrapper-tag" data-sk-edited="" style=""><span class="sk-text-wrapper-tag">
+                    店長は「現場のリーダー」であると同時に</span><br/><span class="sk-text-wrapper-tag">　　</span></span><span class="sk-text-wrapper-tag" data-sk-edited="" style="">「スタッフの育成者」であり</span><span class="sk-text-wrapper-tag" style="">「顧客満足の責任者」です。</span></span><br/><span class="sk-text-wrapper-tag" data-sk-edited="" style="">　成果とスタッフ成長の両輪を動かし、店舗を一つの"チーム"として導きます。
+                </span></p>
+</div>
+</div>
+<!-- Mission Icons Section -->
+<div class="w-full mt-16">
+<h2 class="text-2xl font-bold text-gray-700 text-center mb-8">店長の5つの役割</h2>
+<div class="flex justify-center space-x-12">
+<!-- Mission 1 -->
+<div class="text-center w-40">
+<div class="mission-icon bg-green-500 text-white" style="background-color: #8BC34A;">
+<i class="fas fa-chart-line text-3xl"></i>
+</div>
+<p class="mt-4 text-sm font-medium text-gray-700">店舗運営の<br/>成果の最大化</p>
+</div>
+<!-- Mission 2 -->
+<div class="text-center w-40">
+<div class="mission-icon bg-green-500 text-white" style="background-color: #8BC34A;">
+<i class="fas fa-users text-3xl"></i>
+</div>
+<p class="mt-4 text-sm font-medium text-gray-700">スタッフ育成</p>
+</div>
+<!-- Mission 3 -->
+<div class="text-center w-40">
+<div class="mission-icon bg-green-500 text-white" style="background-color: #8BC34A;">
+<i class="fas fa-smile text-3xl"></i>
+</div>
+<p class="mt-4 text-sm font-medium text-gray-700"><span class="sk-text-wrapper-tag">顧客満足度の</span><br/><span class="sk-text-wrapper-tag">向上</span></p>
+</div>
+<!-- Mission 4 -->
+<div class="text-center w-40">
+<div class="mission-icon bg-green-500 text-white" style="background-color: #8BC34A;">
+<i class="fas fa-comments text-3xl"></i>
+</div>
+<p class="mt-4 text-sm font-medium text-gray-700">情報共有</p>
+</div>
+<!-- Mission 5 -->
+<div class="text-center w-40">
+<div class="mission-icon bg-green-500 text-white" style="background-color: #8BC34A;">
+<i class="fas fa-hands-helping text-3xl"></i>
+</div>
+<p class="mt-4 text-sm font-medium text-gray-700">現場支援の<br/>強化</p>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="w-full flex justify-end mt-16">
+<p class="text-sm text-gray-500">Karada Labo © 2025</p>
+</div>
+</div><div class="slide bg-white flex flex-col p-12">
+<!-- Header Section -->
+<div class="mb-8">
+<h1 class="text-4xl font-bold accent-color mb-4">① 店舗運営の安定と成果の最大化</h1>
+<div class="bg-gray-100 p-4 rounded-lg">
+<p class="text-xl text-gray-700">
+<span class="font-bold">＜目的＞</span> 店舗の売上・稼働・目標達成を安定的に推進し、成果を最大化する。
+                </p>
+</div>
+</div>
+<!-- Content Section -->
+<div class="flex flex-1 mt-4">
+<!-- Left Column: Goal Management -->
+<div class="w-1/2 pr-8">
+<div class="flex items-center mb-6">
+<div class="section-icon accent-bg text-white mr-4">
+<i class="fas fa-bullseye text-2xl"></i>
+</div>
+<h2 class="text-2xl font-bold text-gray-800">目標管理</h2>
+</div>
+<div class="ml-4">
+<div class="bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-chart-line accent-color"></i>
+</div>
+<div>
+<p class="font-bold text-lg text-gray-700">売上目標と進捗の管理</p>
+<p class="text-gray-600">月間・週間・日次の目標設定と進捗確認</p>
+<p class="text-gray-600">差異への迅速な対策立案と実行</p>
+</div>
+</div>
+<div class="bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-tachometer-alt accent-color"></i>
+</div>
+<div>
+<p class="font-bold text-lg text-gray-700">KPI管理</p>
+<p class="text-gray-600">施術数・新規予約数など重要指標の管理</p>
+<p class="text-gray-600">数値向上のための施策推進とチーム牽引</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Problem Solving -->
+<div class="w-1/2 pl-8 border-l border-gray-200">
+<div class="flex items-center mb-6">
+<div class="section-icon accent-bg text-white mr-4">
+<i class="fas fa-puzzle-piece text-2xl"></i>
+</div>
+<h2 class="text-2xl font-bold text-gray-800">課題解決</h2>
+</div>
+<div class="ml-4">
+<div class="bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-search accent-color"></i>
+</div>
+<div>
+<p class="font-bold text-lg text-gray-700">課題の早期発見と改善</p>
+<p class="text-gray-600">店舗運営の課題や改善点の把握</p>
+<p class="text-gray-600">具体的改善策の立案と迅速な実行</p>
+</div>
+</div>
+<div class="bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-bullhorn accent-color"></i>
+</div>
+<div>
+<p class="font-bold text-lg text-gray-700">方針・キャンペーンの展開</p>
+<p class="text-gray-600">SV・MGRからの方針を正確に理解</p>
+<p class="text-gray-600">スタッフへの効果的な伝達と実践徹底</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="mt-8 flex justify-between items-center">
+<div class="text-sm text-gray-500">Karada Labo © 2025</div>
+<div class="text-sm text-gray-500">2 / 6</div>
+</div>
+</div><div class="slide bg-white flex flex-col p-12">
+<!-- Header Section -->
+<div class="mb-8">
+<h1 class="text-4xl font-bold accent-color mb-4">② スタッフ育成とチームビルディング</h1>
+<div class="bg-gray-100 p-4 rounded-lg">
+<p class="text-xl text-gray-700">
+<span class="font-bold">＜目的＞</span> スタッフ一人ひとりが力を発揮し、チームとして成果が出る職場をつくる。
+                </p>
+</div>
+</div>
+<!-- Content Section - Using cards instead of columns -->
+<div class="flex flex-1 justify-center space-x-8 mt-6">
+<!-- Individual Development Card -->
+<div class="w-1/2 bg-white rounded-lg shadow-md p-6 border border-gray-200">
+<div class="circle-icon accent-bg text-white">
+<i class="fas fa-user-graduate text-3xl"></i>
+</div>
+<h2 class="text-2xl font-bold text-center text-gray-800 mb-6">個別育成</h2>
+<div class="space-y-6">
+<div class="feature-box">
+<div class="flex items-center mb-2">
+<i class="fas fa-chart-bar accent-color mr-3 text-xl"></i>
+<h3 class="text-lg font-bold text-gray-700">スキル・強みの把握と段階的指導</h3>
+</div>
+<ul class="list-disc ml-8 text-gray-600">
+<li>各スタッフの能力を正確に把握</li>
+<li>成長段階に合わせた教育プログラム実施</li>
+<li>個々のポテンシャルを最大化</li>
+</ul>
+</div>
+<div class="feature-box">
+<div class="flex items-center mb-2">
+<i class="fas fa-comments accent-color mr-3 text-xl"></i>
+<h3 class="text-lg font-bold text-gray-700">定期的フィードバック面談</h3>
+</div>
+<ul class="list-disc ml-8 text-gray-600">
+<li>業務上の課題や進捗を確認</li>
+<li>具体的な改善点の共有</li>
+<li>継続的な成長支援の実施</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Team Building Card -->
+<div class="w-1/2 bg-white rounded-lg shadow-md p-6 border border-gray-200">
+<div class="circle-icon accent-bg text-white">
+<i class="fas fa-users text-3xl"></i>
+</div>
+<h2 class="text-2xl font-bold text-center text-gray-800 mb-6">チーム構築</h2>
+<div class="space-y-6">
+<div class="feature-box">
+<div class="flex items-center mb-2">
+<i class="fas fa-handshake accent-color mr-3 text-xl"></i>
+<h3 class="text-lg font-bold text-gray-700">連携強化と信頼関係の構築</h3>
+</div>
+<ul class="list-disc ml-8 text-gray-600">
+<li>コミュニケーションの円滑化促進</li>
+<li>情報共有の仕組みづくり</li>
+<li>互いに助け合える環境整備</li>
+</ul>
+</div>
+<div class="feature-box">
+<div class="flex items-center mb-2">
+<i class="fas fa-heart accent-color mr-3 text-xl"></i>
+<h3 class="text-lg font-bold text-gray-700">人間関係とモチベーション管理</h3>
+</div>
+<ul class="list-disc ml-8 text-gray-600">
+<li>職場の人間関係の変化に注意</li>
+<li>モチベーション低下の早期発見</li>
+<li>良好な職場環境の維持</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="mt-8 flex justify-between items-center">
+<div class="text-sm text-gray-500">Karada Labo © 2025</div>
+<div class="text-sm text-gray-500">3 / 6</div>
+</div>
+</div><div class="slide bg-white flex flex-col p-12">
+<!-- Header Section -->
+<div class="mb-6">
+<h1 class="text-4xl font-bold accent-color mb-4">③ 接客品質と顧客満足度の向上</h1>
+<div class="bg-gray-100 p-4 rounded-lg">
+<p class="text-xl text-gray-700">
+<span class="font-bold">＜目的＞</span><span class="sk-text-wrapper-tag"> 日々の業務を滞りなく、正確・効率的に遂行する運営体制を築く。
+                </span></p>
+</div>
+</div>
+<!-- Content Section - 2x2 Grid Layout -->
+<div class="grid grid-cols-2 gap-8 mt-6 flex-1">
+<!-- Top Left: 店舗オペレーション -->
+<div class="topic-card p-6 rounded-lg">
+<div class="flex items-center mb-4">
+<div class="icon-circle mr-4">
+<i class="fas fa-tasks text-xl"></i>
+</div>
+<h2 class="text-2xl font-bold text-gray-800">店舗オペレーション</h2>
+</div>
+<ul class="ml-4 space-y-2">
+<li class="flex items-start">
+<i class="fas fa-calendar-check accent-color mt-1 mr-2"></i>
+<span class="text-gray-700">シフト管理と労働時間の適切な配分</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-boxes accent-color mt-1 mr-2"></i>
+<span class="text-gray-700">備品管理と適切な在庫の維持</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-file-alt accent-color mt-1 mr-2"></i>
+<span class="text-gray-700">日報提出による情報共有の徹底</span>
+</li>
+</ul>
+</div>
+<!-- Top Right: マニュアル・ルール -->
+<div class="topic-card p-6 rounded-lg">
+<div class="flex items-center mb-4">
+<div class="icon-circle mr-4">
+<i class="fas fa-book text-xl"></i>
+</div>
+<h2 class="text-2xl font-bold text-gray-800">マニュアル・ルール</h2>
+</div>
+<ul class="ml-4 space-y-2">
+<li class="flex items-start">
+<i class="fas fa-check-double accent-color mt-1 mr-2"></i>
+<span class="text-gray-700">業務の標準化と品質の均一化</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-users-cog accent-color mt-1 mr-2"></i>
+<span class="text-gray-700">属人化を防ぐ体制の構築</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-clipboard-list accent-color mt-1 mr-2"></i>
+<span class="text-gray-700">明確な役割分担と責任の明確化</span>
+</li>
+</ul>
+</div>
+<!-- Bottom Left: 定例業務 -->
+<div class="topic-card p-6 rounded-lg">
+<div class="flex items-center mb-4">
+<div class="icon-circle mr-4">
+<i class="fas fa-sync text-xl"></i>
+</div>
+<h2 class="text-2xl font-bold text-gray-800">定例業務の習慣化</h2>
+</div>
+<ul class="ml-4 space-y-2">
+<li class="flex items-start">
+<i class="fas fa-calendar-alt accent-color mt-1 mr-2"></i>
+<span class="text-gray-700" style="">月次・週次・日次業務のルーティン化</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-chart-line accent-color mt-1 mr-2"></i>
+<span class="text-gray-700">運営の安定性と予測可能性の向上</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-clock accent-color mt-1 mr-2"></i>
+<span class="text-gray-700">時間管理と効率的な業務遂行</span>
+</li>
+</ul>
+</div>
+<!-- Bottom Right: 店舗環境 -->
+<div class="topic-card p-6 rounded-lg">
+<div class="flex items-center mb-4">
+<div class="icon-circle mr-4">
+<i class="fas fa-store text-xl"></i>
+</div>
+<h2 class="text-2xl font-bold text-gray-800">安心できる店舗環境</h2>
+</div>
+<ul class="ml-4 space-y-2">
+<li class="flex items-start">
+<i class="fas fa-broom accent-color mt-1 mr-2"></i>
+<span class="text-gray-700">店内の清潔さと整理整頓の維持</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-pump-soap accent-color mt-1 mr-2"></i>
+<span class="text-gray-700">衛生管理と感染症対策の徹底</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-shield-alt accent-color mt-1 mr-2"></i>
+<span class="text-gray-700">お客様とスタッフの安全確保</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Footer -->
+<div class="mt-8 flex justify-between items-center">
+<div class="text-sm text-gray-500">Karada Labo © 2025</div>
+<div class="text-sm text-gray-500">4 / 6</div>
+</div>
+</div><div class="slide bg-white flex flex-col p-12">
+<!-- Header Section -->
+<div class="mb-6">
+<h1 class="text-4xl font-bold accent-color mb-4">④ 本部・SV＆MGRとの連携と情報共有</h1>
+<div class="bg-gray-100 p-4 rounded-lg">
+<p class="text-xl text-gray-700">
+<span class="font-bold">＜目的＞</span> 店舗と本部・SV＆MGRの橋渡し役として、円滑な連携と情報の流れを確保する。
+                </p>
+</div>
+</div>
+<!-- Communication Flow Diagram -->
+<div class="flex justify-center my-6">
+<div class="flex items-center">
+<div class="bg-gray-100 rounded-lg p-4 text-center">
+<i class="fas fa-building text-3xl accent-color mb-2"></i>
+<p class="font-bold">本部・SV＆MGR</p>
+</div>
+<div class="flow-arrow flex items-center justify-center">
+<i class="fas fa-exchange-alt text-xl accent-color"></i>
+</div>
+<div class="bg-gray-100 rounded-lg p-4 text-center">
+<i class="fas fa-user-tie text-3xl accent-color mb-2"></i>
+<p class="font-bold">店長</p>
+</div>
+<div class="flow-arrow flex items-center justify-center">
+<i class="fas fa-exchange-alt text-xl accent-color"></i>
+</div>
+<div class="bg-gray-100 rounded-lg p-4 text-center">
+<i class="fas fa-users text-3xl accent-color mb-2"></i>
+<p class="font-bold">スタッフ</p>
+</div>
+</div>
+</div>
+<!-- Content Section -->
+<div class="flex flex-1 mt-2">
+<!-- Left Column: Information Transmission -->
+<div class="w-1/2 pr-8">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 rounded-full accent-bg text-white flex items-center justify-center mr-4">
+<i class="fas fa-broadcast-tower text-xl"></i>
+</div>
+<h2 class="text-2xl font-bold text-gray-800">情報伝達</h2>
+</div>
+<div class="ml-4 space-y-5">
+<div class="info-box pl-4">
+<div class="flex items-start">
+<i class="fas fa-bullhorn text-lg accent-color mt-1 mr-3"></i>
+<div>
+<p class="font-bold text-lg text-gray-700">指示・連絡事項の伝達</p>
+<p class="text-gray-600">SVやMGRからの通達を正確に伝える</p>
+<p class="text-gray-600">背景や意図も含めて理解を促進</p>
+</div>
+</div>
+</div>
+<div class="info-box pl-4">
+<div class="flex items-start">
+<i class="fas fa-chart-bar text-lg accent-color mt-1 mr-3"></i>
+<div>
+<p class="font-bold text-lg text-gray-700">店舗状況の報告</p>
+<p class="text-gray-600">売上・顧客フィードバック・課題を報告</p>
+<p class="text-gray-600">客観的データと具体的事例を提示</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Reporting Obligations -->
+<div class="w-1/2 pl-8">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 rounded-full accent-bg text-white flex items-center justify-center mr-4">
+<i class="fas fa-clipboard-check text-xl"></i>
+</div>
+<h2 class="text-2xl font-bold text-gray-800">報告義務</h2>
+</div>
+<div class="ml-4 space-y-5">
+<div class="info-box pl-4">
+<div class="flex items-start">
+<i class="fas fa-tasks text-lg accent-color mt-1 mr-3"></i>
+<div>
+<p class="font-bold text-lg text-gray-700">定型報告業務の遂行</p>
+<p class="text-gray-600">月次報告書・ランキングの期日提出</p>
+<p class="text-gray-600">店舗運営の透明性確保と評価</p>
+</div>
+</div>
+</div>
+<div class="info-box pl-4">
+<div class="flex items-start">
+<i class="fas fa-handshake text-lg accent-color mt-1 mr-3"></i>
+<div>
+<p class="font-bold text-lg text-gray-700">認識の齟齬防止</p>
+<p class="text-gray-600">本部と現場の意図を正確に確認</p>
+<p class="text-gray-600">積極的なコミュニケーションで誤解を防止</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Key Point Box -->
+<div class="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
+<div class="flex items-center">
+<i class="fas fa-lightbulb text-xl accent-color mr-3"></i>
+<p class="text-gray-700 font-medium">
+                    情報の双方向の流れを確保することで、組織全体の方針浸透と現場の声の反映を実現します。
+                </p>
+</div>
+</div>
+<!-- Footer -->
+<div class="mt-6 flex justify-between items-center">
+<div class="text-sm text-gray-500">Karada Labo © 2025</div>
+<div class="text-sm text-gray-500">5 / 6</div>
+</div>
+</div><div class="slide bg-white flex flex-col p-12">
+<!-- Header Section -->
+<div class="mb-8">
+<h1 class="text-4xl font-bold accent-color mb-4">⑤ 店舗間の比較・評価と現場支援の強化</h1>
+<div class="bg-gray-100 p-4 rounded-lg">
+<p class="text-xl text-gray-700">
+<span class="font-bold">＜目的＞</span> 店舗ごとの状況を的確に把握し、バランスの取れた全体最適を図る。
+                </p>
+</div>
+</div>
+<!-- Main Content Section -->
+<div class="flex flex-1 space-x-8 mt-6">
+<!-- Left Column: Analysis and Support -->
+<div class="w-1/2 bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+<div class="flex items-center mb-6">
+<div class="icon-container accent-bg text-white mr-4">
+<i class="fas fa-chart-bar text-2xl"></i>
+</div>
+<h2 class="text-2xl font-bold text-gray-800">分析と支援</h2>
+</div>
+<div class="space-y-6 mt-4">
+<div class="content-box">
+<div class="flex items-start">
+<div class="mr-3 mt-1">
+<i class="fas fa-analytics text-xl accent-color"></i>
+</div>
+<div>
+<h3 class="font-bold text-lg text-gray-700">数値・施策の比較分析</h3>
+<p class="text-gray-600">店舗ごとの実績をランキング表で比較</p>
+<p class="text-gray-600">各店舗の強みと課題を明確化</p>
+</div>
+</div>
+</div>
+<div class="content-box">
+<div class="flex items-start">
+<div class="mr-3 mt-1">
+<i class="fas fa-hands-helping text-xl accent-color"></i>
+</div>
+<div>
+<h3 class="font-bold text-lg text-gray-700">重点的な支援の実施</h3>
+<p class="text-gray-600">課題店舗への個別目標設定と改善策提案</p>
+<p class="text-gray-600">定期面談と現場フォロー強化</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Overall Optimization -->
+<div class="w-1/2 bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+<div class="flex items-center mb-6">
+<div class="icon-container accent-bg text-white mr-4">
+<i class="fas fa-sync-alt text-2xl"></i>
+</div>
+<h2 class="text-2xl font-bold text-gray-800">全体最適化</h2>
+</div>
+<div class="space-y-6 mt-4">
+<div class="content-box">
+<div class="flex items-start">
+<div class="mr-3 mt-1">
+<i class="fas fa-award text-xl accent-color"></i>
+</div>
+<div>
+<h3 class="font-bold text-lg text-gray-700">成功事例の共有と展開</h3>
+<p class="text-gray-600">優良店舗のノウハウを横展開</p>
+<p class="text-gray-600">全体のパフォーマンス底上げ</p>
+</div>
+</div>
+</div>
+<div class="content-box">
+<div class="flex items-start">
+<div class="mr-3 mt-1">
+<i class="fas fa-handshake text-xl accent-color"></i>
+</div>
+<div>
+<h3 class="font-bold text-lg text-gray-700">経営層・関連部署との連携強化</h3>
+<p class="text-gray-600">現場の声を経営判断に活かす</p>
+<p class="text-gray-600">「橋渡し役」として組織一体感を醸成</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Summary Box -->
+<div class="mt-8 bg-gray-50 p-4 rounded-lg border border-gray-200">
+<p class="text-center text-gray-700">
+<span class="font-bold">各店舗の状況を正確に把握し、</span>
+                適切な支援と全社的な知識共有を通じて、
+                <span class="accent-color font-bold">組織全体の成長</span>を実現します。
+            </p>
+</div>
+<!-- Footer -->
+<div class="mt-4 flex justify-between items-center">
+<div class="text-sm text-gray-500">Karada Labo © 2025</div>
+<div class="text-sm text-gray-500">6 / 6</div>
+</div>
+</div></body></html>
