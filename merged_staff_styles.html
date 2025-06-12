@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>カラダラボ スタッフミッション -役割期待-</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .page {
+      width: 100%;
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 40px;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: relative;
+      min-height: 90vh;
+      border: 1px solid #eaeaea;
+    }
+    
+    .page-top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background-color: #8BC34A;
+    }
+    
+    /* 表紙スタイル */
+    .logo {
+      text-align: center;
+      font-size: 42px;
+      font-weight: bold;
+      margin-top: 160px;
+      margin-bottom: 60px;
+    }
+    
+    .title-wrap {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .title {
+      font-size: 36px;
+      font-weight: bold;
+      color: #8BC34A;
+      display: inline-block;
+    }
+    
+    .subtitle {
+      font-size: 24px;
+      font-weight: bold;
+      color: #8BC34A;
+      display: inline-block;
+      margin-left: 5px;
+    }
+    
+    .description {
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 60px;
+      padding: 0 60px;
+    }
+    
+    .roles-title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    
+    .roles-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+    
+    .role-item {
+      width: 120px;
+      text-align: center;
+      flex: 0 0 auto;
+    }
+    
+    .role-icon {
+      width: 70px;
+      height: 70px;
+      background-color: #8BC34A;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px auto;
+      color: white;
+      font-size: 30px;
+    }
+    
+    .role-text {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    
+    /* 内容ページスタイル */
+    .page-title {
+      font-size: 32px;
+      font-weight: bold;
+      color: #8BC34A;
+      border-left: 5px solid #8BC34A;
+      padding-left: 15px;
+      margin-bottom: 30px;
+      margin-top: 20px;
+    }
+    
+    .purpose-box {
+      background-color: rgba(139, 195, 74, 0.1);
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 5px;
+      border-left: 5px solid #8BC34A;
+    }
+    
+    .purpose-label {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .purpose-text {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    
+    .bullet-list {
+      list-style: none;
+      margin-bottom: 40px;
+    }
+    
+    .bullet-list li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 15px;
+      font-size: 17px;
+    }
+    
+    .bullet-list li:before {
+      content: "•";
+      color: #8BC34A;
+      font-size: 24px;
+      position: absolute;
+      left: 5px;
+      top: -2px;
+    }
+    
+    .visual-section {
+      background-color: rgba(139, 195, 74, 0.05);
+      border: 1px solid rgba(139, 195, 74, 0.2);
+      padding: 30px;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+    
+    .visual-title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #555;
+    }
+    
+    .visualization {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .visual-item {
+      position: relative;
+      text-align: center;
+      width: 150px;
+    }
+    
+    .visual-item:not(:last-child):after {
+      content: "→";
+      position: absolute;
+      right: -15px;
+      top: 50px;
+      font-size: 24px;
+      color: #8BC34A;
+    }
+    
+    .circle-icon {
+      width: 100px;
+      height: 100px;
+      background-color: #8BC34A;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      color: white;
+      font-size: 40px;
+    }
+    
+    .visual-text {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    
+    .visual-subtext {
+      font-size: 14px;
+      color: #666;
+      margin-top: 5px;
+    }
+    
+    /* 印刷用スタイル */
+    @media print {
+      .page {
+        margin: 0;
+        page-break-after: always;
+        min-height: 100vh;
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 表紙 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <div class="logo">カラダラボ</div>
+    
+    <div class="title-wrap">
+      <span class="title">スタッフミッション</span>
+      <span class="subtitle">-役割期待-</span>
+    </div>
+    
+    <div class="description">
+      スタッフは「お客様満足」と「店舗運営」を支える現場の主役。一人ひとりがプロフェッショナルとして、日々の業務に責任を持ち、成果とチーム力を高めていきます。
+    </div>
+    
+    <div class="roles-title">スタッフの5つの役割</div>
+    
+    <div class="roles-container">
+      <div class="role-item">
+        <div class="role-icon">
+          <i class="fas fa-smile"></i>
+        </div>
+        <div class="role-text">お客様満足と売上成果の最大化</div>
+      </div>
+      
+      <div class="role-item">
+        <div class="role-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="role-text">自己成長とチーム貢献</div>
+      </div>
+      
+      <div class="role-item">
+        <div class="role-icon">
+          <i class="fas fa-clipboard-check"></i>
+        </div>
+        <div class="role-text">接客品質と店舗オペレーションの徹底</div>
+      </div>
+      
+      <div class="role-item">
+        <div class="role-icon">
+          <i class="fas fa-comments"></i>
+        </div>
+        <div class="role-text">情報共有とスムーズな連携</div>
+      </div>
+      
+      <div class="role-item">
+        <div class="role-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="role-text">ブランド価値向上への貢献</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 2ページ目 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <h2 class="page-title">① お客様満足と売上成果の最大化</h2>
+    
+    <div class="purpose-box">
+      <div class="purpose-label">＜目的＞</div>
+      <div class="purpose-text">お客様に満足していただきながら、店舗の売上目標達成に貢献する。</div>
+    </div>
+    
+    <ul class="bullet-list">
+      <li>月次・日次で個人目標・店舗目標を把握し、施術・接客に反映する。</li>
+      <li>KPI（施術数・新規獲得数・リピート率など）を意識しながら行動する。</li>
+      <li>顧客満足度を高め、リピートや口コミ促進に努める。</li>
+      <li>店舗方針・キャンペーン内容を理解し、確実にお客様へ案内・提案を行う。</li>
+    </ul>
+    
+    <div class="visual-section">
+      <div class="visual-title">お客様満足と売上目標の相乗効果</div>
+      <div class="visualization">
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <div class="visual-text">お客様満足</div>
+          <div class="visual-subtext">丁寧な施術と接客</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-redo"></i>
+          </div>
+          <div class="visual-text">リピート創出</div>
+          <div class="visual-subtext">継続的な価値提供</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <div class="visual-text">口コミ効果</div>
+          <div class="visual-subtext">新規顧客の獲得</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="visual-text">売上目標達成</div>
+          <div class="visual-subtext">Win-Winの関係構築</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 3ページ目 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <h2 class="page-title">② 自己成長とチーム貢献</h2>
+    
+    <div class="purpose-box">
+      <div class="purpose-label">＜目的＞</div>
+      <div class="purpose-text">スタッフ一人ひとりが力を発揮し、チームとして成果が出る職場をつくる。</div>
+    </div>
+    
+    <ul class="bullet-list">
+      <li>手技練習・技術見直しを日々行い、常に施術レベルを向上させる。</li>
+      <li>個々のスキルに応じて、役割や貢献の幅を広げる。</li>
+      <li>チーム内で声掛け・助け合いを行い、店舗全体の成果を支える。</li>
+      <li>モチベーションや職場環境に配慮し、前向きな職場づくりに協力する。</li>
+    </ul>
+    
+    <div class="visual-section">
+      <div class="visual-title">個人の成長とチーム力の相乗効果</div>
+      <div class="visualization">
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <div class="visual-text">個人の成長</div>
+          <div class="visual-subtext">スキルアップ・自己研鑽</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <div class="visual-text">チームワーク</div>
+          <div class="visual-subtext">協力・サポート</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <div class="visual-text">貢献意識</div>
+          <div class="visual-subtext">役割の遂行と拡大</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="visual-text">店舗の成功</div>
+          <div class="visual-subtext">目標達成・お客様満足</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 4ページ目 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <h2 class="page-title">③ 接客品質と店舗オペレーションの徹底</h2>
+    
+    <div class="purpose-box">
+      <div class="purpose-label">＜目的＞</div>
+      <div class="purpose-text">お客様に安心して来店いただける環境と、安定した店舗運営を実現する。</div>
+    </div>
+    
+    <ul class="bullet-list">
+      <li>ご来店時・施術時・お帰り時すべてにおいて、丁寧な接客を徹底する。</li>
+      <li>シフト・勤怠管理を正しく行い、遅刻・欠勤防止に努める。</li>
+      <li>開店・閉店作業（レジ金管理・清掃・タオル管理・在庫補充）を正確に実施する。</li>
+      <li>店舗マニュアルやルールを遵守し、属人化せずに業務を遂行する。</li>
+    </ul>
+    
+    <div class="visual-section">
+      <div class="visual-title">丁寧な接客と確実なオペレーション</div>
+      <div class="visualization">
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-door-open"></i>
+          </div>
+          <div class="visual-text">来店</div>
+          <div class="visual-subtext">笑顔で温かいお迎え</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-hand-holding-heart"></i>
+          </div>
+          <div class="visual-text">施術</div>
+          <div class="visual-subtext">丁寧な対応と技術提供</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-cash-register"></i>
+          </div>
+          <div class="visual-text">会計</div>
+          <div class="visual-subtext">正確な精算と次回提案</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-hand-sparkles"></i>
+          </div>
+          <div class="visual-text">お見送り</div>
+          <div class="visual-subtext">感謝の気持ちを伝える</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 5ページ目 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <h2 class="page-title">④ 情報共有とスムーズな連携</h2>
+    
+    <div class="purpose-box">
+      <div class="purpose-label">＜目的＞</div>
+      <div class="purpose-text">店舗内外で情報の流れを滞らせず、チーム全体の動きをスムーズにする。</div>
+    </div>
+    
+    <ul class="bullet-list">
+      <li>TUNAGチャットや業務連絡をこまめに確認・対応する。</li>
+      <li>SV・MGR・店長からの方針や業務指示を正確に理解・実行する。</li>
+      <li>店舗内の課題やお客様情報を適切に共有し、トラブルを未然に防ぐ。</li>
+      <li>シフト提出・月次報告などの提出物も期日を守り、業務遅延を防ぐ。</li>
+    </ul>
+    
+    <div class="visual-section">
+      <div class="visual-title">情報循環がサービス品質を高める</div>
+      <div class="visualization">
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-sitemap"></i>
+          </div>
+          <div class="visual-text">本部</div>
+          <div class="visual-subtext">方針・戦略の発信</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <div class="visual-text">店長・MGR・SV</div>
+          <div class="visual-subtext">指導・サポート</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="visual-text">スタッフ</div>
+          <div class="visual-subtext">現場実行・情報共有</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="visual-text">お客様</div>
+          <div class="visual-subtext">満足度向上・信頼構築</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 6ページ目 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <h2 class="page-title">⑤ ブランド価値向上への貢献</h2>
+    
+    <div class="purpose-box">
+      <div class="purpose-label">＜目的＞</div>
+      <div class="purpose-text">カラダラボのブランドイメージ向上に貢献し、社会から信頼される存在となる。</div>
+    </div>
+    
+    <ul class="bullet-list">
+      <li>口コミ投稿促進・SNS対応などを積極的に行い、顧客とのつながりを広げる。</li>
+      <li>店舗外の見える部分（制服・接客態度・身だしなみ）にも責任を持つ。</li>
+      <li>ラボ式を代替医療の世界スタンダードに！という理念を意識し、日々の行動に反映する。</li>
+      <li>自らの成長を通じて、カラダラボの価値を高める一員であることを自覚する。</li>
+    </ul>
+    
+    <div class="visual-section">
+      <div class="visual-title">一人ひとりの行動がカラダラボの価値をつくる</div>
+      <div class="visualization">
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-gem"></i>
+          </div>
+          <div class="visual-text">高品質サービス</div>
+          <div class="visual-subtext">確かな技術と対応</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <div class="visual-text">信頼関係構築</div>
+          <div class="visual-subtext">お客様との絆づくり</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-crown"></i>
+          </div>
+          <div class="visual-text">ブランド向上</div>
+          <div class="visual-subtext">口コミ・評判の拡大</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="visual-text">社会的信頼</div>
+          <div class="visual-subtext">代替医療の標準化</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
