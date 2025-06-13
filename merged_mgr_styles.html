@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>カラダラボ マネージャー（MGR）ミッション -役割期待-</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .page {
+      width: 1190px;
+      height: 842px;
+      margin: 20px auto;
+      padding: 40px;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: relative;
+      border: 1px solid #eaeaea;
+      overflow: hidden;
+    }
+    
+    .page-top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background-color: #8BC34A;
+    }
+    
+    /* 表紙スタイル */
+    .logo {
+      text-align: center;
+      font-size: 42px;
+      font-weight: bold;
+      margin-top: 160px;
+      margin-bottom: 60px;
+    }
+    
+    .title-wrap {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .title {
+      font-size: 36px;
+      font-weight: bold;
+      color: #8BC34A;
+      display: inline-block;
+    }
+    
+    .subtitle {
+      font-size: 24px;
+      font-weight: bold;
+      color: #8BC34A;
+      display: inline-block;
+      margin-left: 5px;
+    }
+    
+    .description {
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 60px;
+      padding: 0 120px;
+    }
+    
+    .roles-title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    
+    .roles-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+    
+    .role-item {
+      width: 120px;
+      text-align: center;
+      flex: 0 0 auto;
+    }
+    
+    .role-icon {
+      width: 70px;
+      height: 70px;
+      background-color: #8BC34A;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px auto;
+      color: white;
+      font-size: 30px;
+    }
+    
+    .role-text {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    
+    /* 内容ページスタイル */
+    .page-title {
+      font-size: 32px;
+      font-weight: bold;
+      color: #8BC34A;
+      border-left: 5px solid #8BC34A;
+      padding-left: 15px;
+      margin-bottom: 30px;
+      margin-top: 20px;
+    }
+    
+    .purpose-box {
+      background-color: rgba(139, 195, 74, 0.1);
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 5px;
+      border-left: 5px solid #8BC34A;
+    }
+    
+    .purpose-label {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .purpose-text {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    
+    .bullet-list {
+      list-style: none;
+      margin-bottom: 40px;
+    }
+    
+    .bullet-list li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 15px;
+      font-size: 17px;
+    }
+    
+    .bullet-list li:before {
+      content: "•";
+      color: #8BC34A;
+      font-size: 24px;
+      position: absolute;
+      left: 5px;
+      top: -2px;
+    }
+    
+    .visual-section {
+      background-color: rgba(139, 195, 74, 0.05);
+      border: 1px solid rgba(139, 195, 74, 0.2);
+      padding: 30px;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+    
+    .visual-title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #555;
+    }
+    
+    .visualization {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .visual-item {
+      position: relative;
+      text-align: center;
+      width: 150px;
+    }
+    
+    .visual-item:not(:last-child):after {
+      content: "→";
+      position: absolute;
+      right: -15px;
+      top: 50px;
+      font-size: 24px;
+      color: #8BC34A;
+    }
+    
+    .circle-icon {
+      width: 100px;
+      height: 100px;
+      background-color: #8BC34A;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      color: white;
+      font-size: 40px;
+    }
+    
+    .visual-text {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    
+    .visual-subtext {
+      font-size: 14px;
+      color: #666;
+      margin-top: 5px;
+    }
+    
+    /* 印刷用スタイル */
+    @media print {
+      .page {
+        margin: 0;
+        page-break-after: always;
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 表紙 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <div class="logo">カラダラボ</div>
+    
+    <div class="title-wrap">
+      <span class="title">マネージャー（MGR）ミッション</span>
+      <span class="subtitle">-役割期待-</span>
+    </div>
+    
+    <div class="description">
+      マネージャーは、「人・組織・文化」をつなぐ役割で組織全体のパフォーマンスを最大化するために、中核的なマネジメントと現場支援を担います。現場に寄り添いながら、常に俯瞰して全体の最適化を図ります。
+    </div>
+    
+    <div class="roles-title">マネージャー（MGR）の5つの役割</div>
+    
+    <div class="roles-container">
+      <div class="role-item">
+        <div class="role-icon">
+          <i class="fas fa-cogs"></i>
+        </div>
+        <div class="role-text">組織の円滑な運営と業務効率化</div>
+      </div>
+      
+      <div class="role-item">
+        <div class="role-icon">
+          <i class="fas fa-tasks"></i>
+        </div>
+        <div class="role-text">業務の標準化・マニュアル化</div>
+      </div>
+      
+      <div class="role-item">
+        <div class="role-icon">
+          <i class="fas fa-share-alt"></i>
+        </div>
+        <div class="role-text">情報共有と業務の可視化</div>
+      </div>
+      
+      <div class="role-item">
+        <div class="role-icon">
+          <i class="fas fa-users-cog"></i>
+        </div>
+        <div class="role-text">スタッフの育成とエンゲージメント</div>
+      </div>
+      
+      <div class="role-item">
+        <div class="role-icon">
+          <i class="fas fa-seedling"></i>
+        </div>
+        <div class="role-text">企業理念の体現と組織文化の醸成</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 2ページ目 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <h2 class="page-title">① 組織の円滑な運営と業務効率化の推進</h2>
+    
+    <div class="purpose-box">
+      <div class="purpose-label">＜目的＞</div>
+      <div class="purpose-text">組織全体の業務が滞りなく進む体制を構築し、無駄や混乱を最小限に抑える。</div>
+    </div>
+    
+    <ul class="bullet-list">
+      <li>SV、店長（副店長）と密に連携し、全体業務が円滑に運営されるようサポートする。</li>
+      <li>店舗・本部間の情報や依頼を正確・迅速に伝達し、対応の漏れを防ぐ。</li>
+      <li>定例の業務（日次／週次／月次）を明確に管理し、スタッフにとって働きやすい体制を整える。</li>
+      <li>業務過多や属人化を防ぎ、チーム全体で業務を分担できる体制を構築する。</li>
+    </ul>
+    
+    <div class="visual-section">
+      <div class="visual-title">組織の円滑な運営と業務効率化のサイクル</div>
+      <div class="visualization">
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-sitemap"></i>
+          </div>
+          <div class="visual-text">役割明確化</div>
+          <div class="visual-subtext">責任範囲と連携体制</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-project-diagram"></i>
+          </div>
+          <div class="visual-text">業務最適化</div>
+          <div class="visual-subtext">プロセス改善と効率化</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-sync-alt"></i>
+          </div>
+          <div class="visual-text">PDCAサイクル</div>
+          <div class="visual-subtext">継続的な改善活動</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="visual-text">成果向上</div>
+          <div class="visual-subtext">組織パフォーマンス最大化</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 3ページ目 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <h2 class="page-title">② 業務の標準化・マニュアル化</h2>
+    
+    <div class="purpose-box">
+      <div class="purpose-label">＜目的＞</div>
+      <div class="purpose-text">誰が行っても一定の成果を出せる業務体制をつくる。</div>
+    </div>
+    
+    <ul class="bullet-list">
+      <li>カスタマー対応や業務オペレーションの標準化を推進し、業務品質と効率を両立させる。</li>
+      <li>実務に即したマニュアルや業務ガイドラインを作成・更新し、現場で活用できる形に整備する。</li>
+      <li>制度やルールの周知不足による混乱を防ぐため、スタッフが理解しやすい資料・伝達方法を工夫する。</li>
+      <li>新人スタッフが早期に戦力化できるよう、教育ツール・導入フローを見直し続ける。</li>
+    </ul>
+    
+    <div class="visual-section">
+      <div class="visual-title">業務の標準化・マニュアル化のプロセス</div>
+      <div class="visualization">
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="visual-text">業務分析</div>
+          <div class="visual-subtext">現状把握と課題抽出</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <div class="visual-text">標準化設計</div>
+          <div class="visual-subtext">明確なプロセス定義</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <div class="visual-text">マニュアル化</div>
+          <div class="visual-subtext">わかりやすい文書化</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="visual-text">品質均一化</div>
+          <div class="visual-subtext">属人性の排除と安定</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 4ページ目 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <h2 class="page-title">③ 情報共有と業務の可視化</h2>
+    
+    <div class="purpose-box">
+      <div class="purpose-label">＜目的＞</div>
+      <div class="purpose-text">情報の透明性を高め、誰でも業務状況を把握・判断できる環境をつくる。</div>
+    </div>
+    
+    <ul class="bullet-list">
+      <li>TUNAGや社内共有ツールを活用し、進捗や重要情報を適切に共有する体制を維持する。</li>
+      <li>各店舗の稼働状況や課題をデータと実情の両面で「見える化」し、早期の対応を図る。</li>
+      <li>店舗から吸い上げた課題や気づきを、必要に応じて経営層・関係部門と共有・連携する。</li>
+      <li>突発事項や重大トラブルに対しては、即時報告・適切な初動対応を徹底する。</li>
+    </ul>
+    
+    <div class="visual-section">
+      <div class="visual-title">情報共有と業務可視化のシステム</div>
+      <div class="visualization">
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <div class="visual-text">情報集約</div>
+          <div class="visual-subtext">データ・実情の収集</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <div class="visual-text">可視化</div>
+          <div class="visual-subtext">状況の明確な表現</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <div class="visual-text">共有・伝達</div>
+          <div class="visual-subtext">必要な情報を適切に</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <div class="visual-text">判断・行動</div>
+          <div class="visual-subtext">迅速で適切な対応</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 5ページ目 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <h2 class="page-title">④ スタッフのエンゲージメント向上と人材育成</h2>
+    
+    <div class="purpose-box">
+      <div class="purpose-label">＜目的＞</div>
+      <div class="purpose-text">一人ひとりのスタッフが能力を最大限に発揮し、長期的に活躍できる組織をつくる。</div>
+    </div>
+    
+    <ul class="bullet-list">
+      <li>働きやすい環境（人間関係・業務負荷・成長支援）を整え、離職リスクを未然に防ぐ。</li>
+      <li>ホスピタリティを軸とした行動指針を共有し、接客・応対の質を高める。</li>
+      <li>スタッフが成長を実感できるキャリアパスを明示し、モチベーション向上を図る。</li>
+      <li>個々の強みや特性を活かした役割付与を行い、チーム全体の活性化につなげる。</li>
+    </ul>
+    
+    <div class="visual-section">
+      <div class="visual-title">スタッフの活躍と成長を支える4つの要素</div>
+      <div class="visualization">
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-home"></i>
+          </div>
+          <div class="visual-text">働きやすさ</div>
+          <div class="visual-subtext">快適な環境・適正負荷</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="visual-text">成長機会</div>
+          <div class="visual-subtext">教育・挑戦・フィードバック</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <div class="visual-text">信頼関係</div>
+          <div class="visual-subtext">対話・理解・共感</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <div class="visual-text">高いエンゲージメント</div>
+          <div class="visual-subtext">自発性・貢献意欲</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 6ページ目 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <h2 class="page-title">⑤ 企業理念の体現と組織文化の醸成</h2>
+    
+    <div class="purpose-box">
+      <div class="purpose-label">＜目的＞</div>
+      <div class="purpose-text">カラダラボの存在意義・ブランド価値を、日常業務の中でスタッフとともに実践する。</div>
+    </div>
+    
+    <ul class="bullet-list">
+      <li>「ラボ式を代替医療の世界スタンダードに」という理念を共有し、日々の行動に落とし込む。</li>
+      <li>理念やビジョンが現場で形骸化しないよう、ミーティング・評価に組み込む。</li>
+      <li>顧客満足度向上のためのアイデアや改善提案を自ら起案し、現場とともに実行する。</li>
+      <li>理念に沿った行動が評価され、誇りを持って働ける組織文化を育成する。</li>
+    </ul>
+    
+    <div class="visual-section">
+      <div class="visual-title">企業理念を組織文化に根付かせるサイクル</div>
+      <div class="visualization">
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-compass"></i>
+          </div>
+          <div class="visual-text">理念理解</div>
+          <div class="visual-subtext">価値観・存在意義の共有</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-hands"></i>
+          </div>
+          <div class="visual-text">日常実践</div>
+          <div class="visual-subtext">理念に基づく行動</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-seedling"></i>
+          </div>
+          <div class="visual-text">組織文化</div>
+          <div class="visual-subtext">暗黙知・当たり前の醸成</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="visual-text">世界標準化</div>
+          <div class="visual-subtext">ラボ式の価値浸透</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
