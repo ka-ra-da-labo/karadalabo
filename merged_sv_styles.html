@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>カラダラボ スーパーバイザー（SV）ミッション -役割期待-</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .page {
+      width: 1190px;
+      height: 842px;
+      margin: 20px auto;
+      padding: 40px;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: relative;
+      border: 1px solid #eaeaea;
+      overflow: hidden;
+    }
+    
+    .page-top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background-color: #8BC34A;
+    }
+    
+    /* 表紙スタイル */
+    .logo {
+      text-align: center;
+      font-size: 42px;
+      font-weight: bold;
+      margin-top: 160px;
+      margin-bottom: 60px;
+    }
+    
+    .title-wrap {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .title {
+      font-size: 36px;
+      font-weight: bold;
+      color: #8BC34A;
+      display: inline-block;
+    }
+    
+    .subtitle {
+      font-size: 24px;
+      font-weight: bold;
+      color: #8BC34A;
+      display: inline-block;
+      margin-left: 5px;
+    }
+    
+    .description {
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 60px;
+      padding: 0 120px;
+    }
+    
+    .roles-title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    
+    .roles-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+    
+    .role-item {
+      width: 120px;
+      text-align: center;
+      flex: 0 0 auto;
+    }
+    
+    .role-icon {
+      width: 70px;
+      height: 70px;
+      background-color: #8BC34A;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px auto;
+      color: white;
+      font-size: 30px;
+    }
+    
+    .role-text {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    
+    /* 内容ページスタイル */
+    .page-title {
+      font-size: 32px;
+      font-weight: bold;
+      color: #8BC34A;
+      border-left: 5px solid #8BC34A;
+      padding-left: 15px;
+      margin-bottom: 30px;
+      margin-top: 20px;
+    }
+    
+    .purpose-box {
+      background-color: rgba(139, 195, 74, 0.1);
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 5px;
+      border-left: 5px solid #8BC34A;
+    }
+    
+    .purpose-label {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .purpose-text {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    
+    .bullet-list {
+      list-style: none;
+      margin-bottom: 40px;
+    }
+    
+    .bullet-list li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 15px;
+      font-size: 17px;
+    }
+    
+    .bullet-list li:before {
+      content: "•";
+      color: #8BC34A;
+      font-size: 24px;
+      position: absolute;
+      left: 5px;
+      top: -2px;
+    }
+    
+    .visual-section {
+      background-color: rgba(139, 195, 74, 0.05);
+      border: 1px solid rgba(139, 195, 74, 0.2);
+      padding: 30px;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+    
+    .visual-title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #555;
+    }
+    
+    .visualization {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .visual-item {
+      position: relative;
+      text-align: center;
+      width: 150px;
+    }
+    
+    .visual-item:not(:last-child):after {
+      content: "→";
+      position: absolute;
+      right: -15px;
+      top: 50px;
+      font-size: 24px;
+      color: #8BC34A;
+    }
+    
+    .circle-icon {
+      width: 100px;
+      height: 100px;
+      background-color: #8BC34A;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      color: white;
+      font-size: 40px;
+    }
+    
+    .visual-text {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    
+    .visual-subtext {
+      font-size: 14px;
+      color: #666;
+      margin-top: 5px;
+    }
+    
+    /* 印刷用スタイル */
+    @media print {
+      .page {
+        margin: 0;
+        page-break-after: always;
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 表紙 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <div class="logo">カラダラボ</div>
+    
+    <div class="title-wrap">
+      <span class="title">スーパーバイザー（SV）ミッション</span>
+      <span class="subtitle">-役割期待-</span>
+    </div>
+    
+    <div class="description">
+      SV（スーパーバイザー）は、店舗の「運営力」と「人材力」の両面を高め、店長・スタッフを支援する中間管理職としての重要なポジションです。数字だけでなく「人」と「空気感」にも目を配り、事業全体の成長を支えるプロフェッショナルです。
+    </div>
+    
+    <div class="roles-title">スーパーバイザー（SV）の5つの役割</div>
+    
+    <div class="roles-container">
+      <div class="role-item">
+        <div class="role-icon">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <div class="role-text">店長のマネジメント能力最大化</div>
+      </div>
+      
+      <div class="role-item">
+        <div class="role-icon">
+          <i class="fas fa-chart-bar"></i>
+        </div>
+        <div class="role-text">店舗状況と数値の把握</div>
+      </div>
+      
+      <div class="role-item">
+        <div class="role-icon">
+          <i class="fas fa-sync-alt"></i>
+        </div>
+        <div class="role-text">本部方針の現場浸透</div>
+      </div>
+      
+      <div class="role-item">
+        <div class="role-icon">
+          <i class="fas fa-users-cog"></i>
+        </div>
+        <div class="role-text">人材育成と労働環境の最適化</div>
+      </div>
+      
+      <div class="role-item">
+        <div class="role-icon">
+          <i class="fas fa-balance-scale"></i>
+        </div>
+        <div class="role-text">店舗間の比較・評価</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 2ページ目 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <h2 class="page-title">① 店長のマネジメント能力最大化と店舗運営支援</h2>
+    
+    <div class="purpose-box">
+      <div class="purpose-label">＜目的＞</div>
+      <div class="purpose-text">店長を中心とした現場マネジメント力を強化し、店舗運営の安定と成果向上を図る。</div>
+    </div>
+    
+    <ul class="bullet-list">
+      <li>店長の能力や特性を把握し、それぞれの強みを伸ばすよう継続的な育成・指導を行う。</li>
+      <li>定期的な店長面談を実施し、目標・数値・行動計画に基づいたPDCAサイクルを強化する。</li>
+      <li>店長との密なコミュニケーションを通じて、日次・週次・月次業務が確実に遂行されるようマネジメントする。</li>
+      <li>店舗での小さな気づきや変化を見逃さず、早期の支援や改善提案に繋げる。</li>
+    </ul>
+    
+    <div class="visual-section">
+      <div class="visual-title">店長育成と店舗運営支援のサイクル</div>
+      <div class="visualization">
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="visual-text">状況把握</div>
+          <div class="visual-subtext">店長特性・強みの発見</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <div class="visual-text">育成指導</div>
+          <div class="visual-subtext">マネジメント力強化</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <div class="visual-text">継続的対話</div>
+          <div class="visual-subtext">目標共有・PDCA</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-store"></i>
+          </div>
+          <div class="visual-text">店舗成果</div>
+          <div class="visual-subtext">安定運営と売上向上</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 3ページ目 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <h2 class="page-title">② 店舗状況と数値の正確な把握と改善提案</h2>
+    
+    <div class="purpose-box">
+      <div class="purpose-label">＜目的＞</div>
+      <div class="purpose-text">数値と現場感の両面から店舗状況を把握し、的確な施策を導き出す。</div>
+    </div>
+    
+    <ul class="bullet-list">
+      <li>売上・施術数・新規予約数などの主要KPIを定期的にチェックし、傾向を分析する。</li>
+      <li>現場ビジテーションを通じて、数値だけでは見えない運営状況・接客品質・人間関係などを直接確認する。</li>
+      <li>店舗別の課題や改善点を明確にし、数値根拠に基づいたアドバイス・対応策を提示する。</li>
+      <li>集計・分析結果はレポートや会議を通じて共有し、改善のサイクルを回す。</li>
+    </ul>
+    
+    <div class="visual-section">
+      <div class="visual-title">データと現場感覚の融合による改善サイクル</div>
+      <div class="visualization">
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <div class="visual-text">数値分析</div>
+          <div class="visual-subtext">KPI・売上・稼働率</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <div class="visual-text">現場確認</div>
+          <div class="visual-subtext">雰囲気・品質・対応</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <div class="visual-text">改善提案</div>
+          <div class="visual-subtext">具体策・アクション</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="visual-text">効果測定</div>
+          <div class="visual-subtext">結果検証・次策立案</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 4ページ目 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <h2 class="page-title">③ 本部方針の現場浸透とオペレーション改善</h2>
+    
+    <div class="purpose-box">
+      <div class="purpose-label">＜目的＞</div>
+      <div class="purpose-text">本社からの方針・施策を店舗に適切に展開し、現場力の統一と質の向上を実現する。</div>
+    </div>
+    
+    <ul class="bullet-list">
+      <li>経営方針、キャンペーン、サービス内容などを、正確かつスピーディに店長へ伝達・説明する。</li>
+      <li>店長会議、SV・MGR会議、月例報告を通じて施策の理解度・浸透度を高める。</li>
+      <li>オペレーション上の非効率や属人化を改善するため、手順・動線・対応内容の見直しを促す。</li>
+      <li>シフト調整やクレーム対応など、日々の運営課題にも柔軟にサポート対応を行う。</li>
+    </ul>
+    
+    <div class="visual-section">
+      <div class="visual-title">本部と現場の橋渡し役としての機能</div>
+      <div class="visualization">
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <div class="visual-text">本部方針</div>
+          <div class="visual-subtext">戦略・施策・方向性</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-exchange-alt"></i>
+          </div>
+          <div class="visual-text">SV</div>
+          <div class="visual-subtext">翻訳・橋渡し役</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-store"></i>
+          </div>
+          <div class="visual-text">現場浸透</div>
+          <div class="visual-subtext">理解・実行・定着</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-sync"></i>
+          </div>
+          <div class="visual-text">改善循環</div>
+          <div class="visual-subtext">効率化・標準化</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 5ページ目 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <h2 class="page-title">④ 人材育成と労働環境の最適化</h2>
+    
+    <div class="purpose-box">
+      <div class="purpose-label">＜目的＞</div>
+      <div class="purpose-text">店長・スタッフが成長を実感でき、安心して働ける職場をつくる。</div>
+    </div>
+    
+    <ul class="bullet-list">
+      <li>各店舗スタッフに対して、成長段階に応じた指導・アドバイスを提供する。</li>
+      <li>働きづらさや不安、チームの空気感などを常に観察し、早期対応・改善に努める。</li>
+      <li>面談や日報・ヒアリングから得た情報をもとに、労働環境の整備やフォローを実施する。</li>
+      <li>トラブルやミスが発生した場合は、再発防止策を一緒に構築し、スタッフの信頼を高める。</li>
+    </ul>
+    
+    <div class="visual-section">
+      <div class="visual-title">人材・環境・組織の三位一体改善</div>
+      <div class="visualization">
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <div class="visual-text">人材育成</div>
+          <div class="visual-subtext">スキル・マインド向上</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-home"></i>
+          </div>
+          <div class="visual-text">職場環境</div>
+          <div class="visual-subtext">安心・安全・働きやすさ</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <div class="visual-text">チーム構築</div>
+          <div class="visual-subtext">信頼関係・協働意識</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <div class="visual-text">モチベーション</div>
+          <div class="visual-subtext">成果・成長・充実感</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 6ページ目 -->
+  <div class="page">
+    <div class="page-top-bar"></div>
+    <h2 class="page-title">⑤ 店舗間の比較・評価と現場支援の強化</h2>
+    
+    <div class="purpose-box">
+      <div class="purpose-label">＜目的＞</div>
+      <div class="purpose-text">店舗ごとの状況を的確に把握し、バランスの取れた全体最適を図る。</div>
+    </div>
+    
+    <ul class="bullet-list">
+      <li>店舗ごとの数値・施策の実施状況をランキング表やレポートにより比較分析する。</li>
+      <li>成績や課題の差異に応じて、必要な店舗には重点的な支援・面談・現場フォローを行う。</li>
+      <li>各店の成功事例や工夫を他店舗にも展開し、全体のパフォーマンス底上げを図る。</li>
+      <li>経営層や関連部署と連携し、現場の声や実情を正確に伝える「橋渡し役」を担う。</li>
+    </ul>
+    
+    <div class="visual-section">
+      <div class="visual-title">店舗間ベンチマークと全体最適化</div>
+      <div class="visualization">
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-balance-scale-right"></i>
+          </div>
+          <div class="visual-text">比較・評価</div>
+          <div class="visual-subtext">数値・KPI分析</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <div class="visual-text">支援強化</div>
+          <div class="visual-subtext">課題対応・リソース配分</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-share-alt"></i>
+          </div>
+          <div class="visual-text">ノウハウ展開</div>
+          <div class="visual-subtext">好事例の水平展開</div>
+        </div>
+        
+        <div class="visual-item">
+          <div class="circle-icon">
+            <i class="fas fa-arrows-alt"></i>
+          </div>
+          <div class="visual-text">全体底上げ</div>
+          <div class="visual-subtext">地域・企業の成長</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
